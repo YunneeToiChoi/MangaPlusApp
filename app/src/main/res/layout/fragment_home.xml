@@ -1,23 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/home_fragment_bg"
     tools:context=".HomeFragment">
-
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/imgslider_container"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/transparent"
+        android:theme="@style/Theme.MangaPlusApp">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/imgslider_container_collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:titleEnabled="false"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/imgslider_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:title=" "
+                app:layout_collapseMode="pin"
+                android:theme="@style/Theme.MangaPlusApp"/>
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp2_image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="80dp"
+                android:paddingEnd="80dp"
+                app:layout_collapseMode="parallax"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="16dp"
-        android:text="@string/Home"
-
-        />
-    <GridView
-        android:id="@+id/gdvDSTruyen"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</FrameLayout>
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -8,59 +8,38 @@
     tools:context=".MainActivity"
     android:fitsSystemWindows="true"
     tools:openDrawer="end">
-<!--    android:orientation="vertical">-->
-
+    <!--    android:orientation="vertical">-->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_drawer_container"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:menu="@menu/menu_drawer_navigation"
+        app:headerLayout="@layout/menu_drawer_header"
         android:layout_gravity="start"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <RelativeLayout
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/main_header"
             android:layout_width="match_parent"
-            android:layout_height="68dp">
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_main"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:minHeight="70dp"
-                android:minWidth="100dp"/>
+            android:layout_height="wrap_content"
+            app:menu="@menu/home_fragment_header_menu">
             <TextView
-                android:id="@+id/home_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:text="@string/manga_plus_home"
-                android:textAppearance="@style/manga_plus_home" />
-
-            <ImageButton
-                android:id="@+id/header_menu_drawer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/custom_button_circle"
-                android:src="@drawable/ic_menu_navigation" />
-            <ImageButton
-                android:id="@+id/header_search_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerInParent="true"
-                android:layout_marginRight="5dp"
-                android:background="@drawable/custom_button_circle"
-                android:src="@drawable/ic_search_foreground" />
-        </RelativeLayout>
+                android:textSize="45sp"
+                android:textColor="#7E675E"
+                android:textStyle="bold"
+                android:fontFamily="@font/square_peg"
+                android:layout_gravity="center"/>
+        </androidx.appcompat.widget.Toolbar>
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_below="@+id/main_header"
             android:layout_above="@+id/bottom_nav_view"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
         </FrameLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -74,5 +53,4 @@
             android:layout_alignParentBottom="true">
         </com.google.android.material.bottomnavigation.BottomNavigationView>
     </RelativeLayout>
-
 </androidx.drawerlayout.widget.DrawerLayout>
