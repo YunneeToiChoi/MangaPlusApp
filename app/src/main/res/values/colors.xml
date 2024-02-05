@@ -12,5 +12,10 @@
     <color name="btn_login">#C3662D</color>
     <color name="text_login_input">#455A64</color>
     <color name="pinkPastel_background">#FFE1E9</color>
+
+    <color name="profile_background">#F5DCE5</color>
+    <color name="profile">#F5F6F7</color>
+
     <color name="forgot_primary">#FFB8B8</color>
+
 </resources>
