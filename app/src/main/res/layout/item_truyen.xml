@@ -1,45 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="4dp">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="180dp">
-
-        <ImageView
-            android:id="@+id/imgAnhTruyen"
-            android:scaleType="centerCrop"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TextView
-            android:id="@+id/txvTenChap"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_alignParentBottom="true"
-            android:background="#a8000000"
-            android:gravity="center"
-            android:text="truyen tranh"
-            android:textColor="#fff"
-            android:textSize="10dp"
-            tools:ignore="TextSizeCheck">
-
-        </TextView>
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/txvTenTruyen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="5dp"
-        android:text="Ten truyen tranh"
-        android:textColor="#000"
-        android:textSize="14dp"
-        tools:ignore="TextSizeCheck">
-    </TextView>
-</LinearLayout>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="100dp"
+    android:layout_height="200dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="5dp"
+    app:cardCornerRadius="8dp">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <ImageView
+           android:id="@+id/imgAnhTruyen"
+           android:src="@drawable/backround_register"
+           android:layout_width="match_parent"
+           android:layout_height="180dp"
+           android:scaleType="centerCrop"/>
+       <TextView
+           android:id="@+id/txvTenTruyen"
+           android:text="Truyen Tranh"
+           android:textAlignment="center"
+           android:fontFamily="@font/stylescript"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+   </LinearLayout>
+</androidx.cardview.widget.CardView>

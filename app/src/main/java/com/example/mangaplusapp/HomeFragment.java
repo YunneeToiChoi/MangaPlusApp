@@ -14,7 +14,6 @@ import android.widget.GridView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import Adapter.TruyenTranhAdapter;
-import Database.CreateDatabase;
 import object.TruyenTranh;
 public class HomeFragment extends Fragment {
     GridView gdvDSTruyen;
@@ -23,6 +22,7 @@ public class HomeFragment extends Fragment {
     EditText edtTimKiem;
     private BottomNavigationView bottomNavigationView;
     private FrameLayout frameLayout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
