@@ -45,7 +45,6 @@
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/custom_button_circle"
                 android:src="@drawable/ic_menu_navigation" />
-
             <ImageButton
                 android:id="@+id/header_search_button"
                 android:layout_width="wrap_content"

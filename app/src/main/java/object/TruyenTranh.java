@@ -1,10 +1,10 @@
 package object;
 
 public class TruyenTranh {
-    private String tenTruyen,tenChap,LinkAnh;
-    public TruyenTranh (String TenTruyen,String TenChap,String LinkAnhh){
+    private String tenTruyen;
+    private int LinkAnh;
+    public TruyenTranh (String TenTruyen,int LinkAnhh){
         this.tenTruyen=TenTruyen;
-        this.tenChap= TenChap;
         this.LinkAnh = LinkAnhh;
 
     }
@@ -14,16 +14,10 @@ public class TruyenTranh {
     public String setTenTruyen(String tenTruyen){
         return  this.tenTruyen=tenTruyen;
     }
-    public String getTenChap(){
-        return this.tenChap;
-    }
-    public String setTenChap(String tenChap){
-        return this.tenChap=tenChap;
-    }
-    public String getLinkAnh(){
+    public int getLinkAnh(){
         return this.LinkAnh;
     }
-    public String setLinkAnh(String LinkAnhh){
+    public int setLinkAnh(int LinkAnhh){
         return  this.LinkAnh=LinkAnhh;
     }
 

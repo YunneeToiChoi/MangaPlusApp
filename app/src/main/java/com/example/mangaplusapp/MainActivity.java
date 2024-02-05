@@ -1,14 +1,6 @@
 package com.example.mangaplusapp;
 
 
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.GridView;
-import android.widget.ImageButton;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,9 +11,27 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.ActionBar;
+import android.app.Activity;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.GridView;
+import android.widget.ImageButton;
+
+import com.bumptech.glide.Glide;
 import com.example.mangaplusapp.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
+import org.jetbrains.annotations.NonNls;
 
 import java.util.ArrayList;
 
@@ -39,6 +49,7 @@ public class MainActivity extends AppCompatActivity{
     private ActivityMainBinding binding;
     private BottomNavigationView bottomNavigationView;
     private FrameLayout frameLayout;
+    private FormLayout formLayout;
     private DrawerLayout drawerLayout;
 
     @Override
@@ -88,8 +99,6 @@ public class MainActivity extends AppCompatActivity{
             fragmentTransaction.add(R.id.frameLayout, fragment, fragment.getClass().getSimpleName());
         } else {
             fragmentTransaction.replace(R.id.frameLayout, fragment, fragment.getClass().getSimpleName());
-            fragmentTransaction.addToBackStack(fragment.getClass().getSimpleName());
-            // sau nay sua lai theo vi tri va rut gon
         }
         fragmentTransaction.commit();
     }
@@ -97,8 +106,6 @@ public class MainActivity extends AppCompatActivity{
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.navigation_drawer_container,fragment);
-        fragmentTransaction.addToBackStack(fragment.getClass().getSimpleName());
-        // sau nay sua lai theo vi tri va rut gon
         fragmentTransaction.commit();
     }
     private void openMenuDrawer(){
