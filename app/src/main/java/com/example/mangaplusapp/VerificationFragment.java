@@ -3,6 +3,7 @@ package com.example.mangaplusapp;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,11 +17,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -40,6 +44,7 @@ public class VerificationFragment extends Fragment{
     int userID;
     String keyOtp;
     EditText otp1Input,otp2Input,otp3Input,otp4Input;
+    ImageButton backOTPBtn;
 
     //Resend OTP time
     private final int resendTime=60;
@@ -60,7 +65,6 @@ public class VerificationFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //Ẩn keyboard
-        KeyBoardHelper.ActionRemoveKeyBoardForFragment(requireContext(),container,inflater,R.layout.fragment_verification);
         //
         View root = inflater.inflate(R.layout.fragment_verification, container, false);
         //=========================================GET ID=========================================//
@@ -72,6 +76,7 @@ public class VerificationFragment extends Fragment{
 
         submitOtp=root.findViewById(R.id.sendOtp);
         reSendOtp=root.findViewById(R.id.reSendOtpTxt);
+        backOTPBtn=root.findViewById(R.id.backOTPBtn);
         //****************************************************************************************//
         //=========================================GET DATA=======================================//
         SharedPreferences preferences = getContext().getSharedPreferences("user_session", Context.MODE_PRIVATE);
@@ -93,6 +98,7 @@ public class VerificationFragment extends Fragment{
         otpHelper.sendOTPByEmail(keyOtp,emailUser);
         Log.d("asd", keyOtp);
         Toast.makeText(getContext(),"Send OTP successfully",Toast.LENGTH_SHORT).show();
+        BackPageVertication();
         //Event start running timer resend OTP
         //        First run
         startCountDownTimer();
@@ -128,6 +134,8 @@ public class VerificationFragment extends Fragment{
                 startCountDownTimer();
             }
         });
+
+
 
         submitOtp.setOnClickListener(v->{
             String otp1 = otp1Input.getText().toString();
@@ -168,7 +176,35 @@ public class VerificationFragment extends Fragment{
                 Toast.makeText(getContext(),"Not entering enough OTP code", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
+
         return root;
+    }
+    private  void BackPageVertication(){
+        backOTPBtn.setOnClickListener(v->{
+            if(dbHelper.CheckEmailExists(emailUser)){
+                loadFragment(new ForgotFragment(),false);
+            }
+            else{
+                Intent loadToRegister = new Intent(getContext(),RegisterActivity.class);
+                startActivity(loadToRegister);
+            }
+        });
+    }
+    private void loadFragment(Fragment fragment, boolean isAppInitialized) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        if (isAppInitialized) {
+            fragmentTransaction.add(R.id.forgotContainer, fragment, fragment.getClass().getSimpleName());
+        } else {
+            fragmentTransaction.replace(R.id.forgotContainer, fragment, fragment.getClass().getSimpleName());
+            fragmentTransaction.addToBackStack(fragment.getClass().getSimpleName());
+        }
+        fragmentTransaction.commit();
     }
     //Check Editext has data or not
     private int ListenNullText(int SelectedPosition,EditText input1,EditText input2, EditText input3, EditText input4)

@@ -18,29 +18,14 @@ import com.example.mangaplusapp.R;
 import com.example.mangaplusapp.RegisterActivity;
 
 public class KeyBoardHelper {
-    public static void ActionRemoveKeyBoardForFragment(Context context, ViewGroup container, LayoutInflater inflater, int ID) {
-        View mainLayout =inflater.inflate(ID, container, false);
+    public static void ActionRemoveKeyBoardForFragment(View mainLayout,Context context) {
         mainLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                KeyBoardHelper.hideKeyboardFromFragment(context, v);
-                return false;
-            }
-        });
-//        // Gỡ bỏ touch listener khi Fragment không còn hiển thị
-//        final FragmentManager fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
-//        View.OnTouchListener finalTouchListener = touchListener;
-//        fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-//            @Override
-//            public void onBackStackChanged() {
-//                Fragment currentFragment = fragmentManager.findFragmentById(container.getId());
-//                if (currentFragment != null && currentFragment.isVisible() && currentFragment.getView() == mainLayout) {
-//                    mainLayout.setOnTouchListener(finalTouchListener);
-//                } else {
-//                    mainLayout.setOnTouchListener(null); // Gỡ bỏ touch listener
-//                }
-//            }
-//        });
+                                          @Override
+                                          public boolean onTouch(View v, MotionEvent event) {
+                                              hideKeyboardFromFragment(context,v);
+                                              return false;
+                                          }
+                                      });
     }
     public static void ActionRemoveKeyBoardForActivity(View mainLayout,Activity activity)
     {
@@ -59,8 +44,8 @@ public class KeyBoardHelper {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-    public static void hideKeyboardFromFragment(Context context, View view) {
+    public static void hideKeyboardFromFragment( Context context,View view) {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
+   }
 }
