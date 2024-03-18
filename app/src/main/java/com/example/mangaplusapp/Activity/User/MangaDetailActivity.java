@@ -66,7 +66,7 @@ public class MangaDetailActivity extends BaseActivity {
     FirebaseUser currentUser;
     ActivityMangaDetailBinding binding;
     BiometricPrompt biometricPrompt;
-    ImageView creditCardImg,momoImg;
+    LinearLayout creditCardImg,momoImg;
     String mangaId, nameManga, mangaPicture, mangaDescription, mangaView;
     int countChapter;
     private List<Chapters> chapterList = new ArrayList<>();
@@ -153,12 +153,6 @@ public class MangaDetailActivity extends BaseActivity {
         });
     }
     private void onClickEvent(){
-        binding.backDetailProductBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
         binding.ContentShowmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -413,10 +407,6 @@ public class MangaDetailActivity extends BaseActivity {
         final Dialog dialog=new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_option_payment);
-        LinearLayout back=dialog.findViewById(R.id.BackToProduct);
-        back.setOnClickListener(v->{
-            dialog.dismiss();
-        });
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

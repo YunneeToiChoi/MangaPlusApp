@@ -1,185 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="250dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
-    android:background="@drawable/background_gradiant">
-        <RelativeLayout
-            android:id="@+id/Layout_Card"
+    app:cardCornerRadius="12dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/creditCardPay"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:id="@+id/BackToProduct"
+            <ImageView
+                android:layout_width="105dp"
+                android:layout_height="70dp"
+                android:background="@drawable/mastercard"/>
+            <TextView
+                android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:padding="10dp"
-                    app:tint="#333379"
-                    android:layout_marginEnd="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:rotation="180"
-                    android:src="@drawable/dialog_tab_bnt">
-                </ImageView>
-                <TextView
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="#211E8F"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/interextrabold"
-                    android:textSize="20sp"
-                    android:text="Back"/>
-            </LinearLayout>
-            <RelativeLayout
-                android:layout_marginTop="30dp"
-                android:layout_below="@+id/BackToProduct"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_marginStart="40dp"
-                    android:layout_marginEnd="40dp"
-                    android:id="@+id/Option_credit_card"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/creditCardPay"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/credit_card_icon"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"/>
-                    <RelativeLayout
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                        <ImageView
-                            android:id="@+id/momoPay"
-                            android:elevation="20dp"
-                            android:background="@drawable/card_credit"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_centerInParent="true"
-                            android:src="@drawable/momo" />
-                </LinearLayout>
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_below="@+id/Option_credit_card"-->
-<!--                    android:elevation="100dp"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:translationZ="5dp"-->
-<!--                    android:layout_marginStart="10dp"-->
-<!--                    android:layout_marginBottom="50dp"-->
-<!--                    app:cardCornerRadius="10dp"-->
-<!--                    android:layout_marginEnd="10dp"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="300dp">-->
-<!--                    <LinearLayout-->
-<!--                        android:orientation="vertical"-->
-<!--                        android:layout_margin="20dp"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent">-->
-<!--                        <LinearLayout-->
-<!--                            android:layout_alignParentTop="true"-->
-<!--                            android:id="@+id/CardName"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:orientation="vertical"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:padding="20dp">-->
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="Card Name"-->
-<!--                                android:fontFamily="@font/interextrabold"-->
-<!--                                android:textSize="15sp"-->
-<!--                                android:paddingRight="10dp"-->
-<!--                                android:textColor="#6D101010" />-->
-<!--                            <TextView-->
-<!--                                android:id="@+id/CardNameIf"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_marginTop="10dp"-->
-<!--                                android:text="Name"-->
-<!--                                android:textColor="#39387E"-->
-<!--                                android:fontFamily="@font/interextrabold"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:textSize="16sp" />-->
-<!--                        </LinearLayout>-->
-<!--                        <View-->
-<!--                            android:layout_below="@+id/UserName_Profile"-->
-<!--                            android:background="#A29DD5"-->
-<!--                            android:layout_marginEnd="20dp"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="2dp">-->
-<!--                        </View>-->
-<!--                        <LinearLayout-->
-<!--                            android:layout_below="@+id/UserName_Profile"-->
-<!--                            android:id="@+id/Email_Profile"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:orientation="vertical"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:padding="20dp">-->
-
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:fontFamily="@font/interextrabold"-->
-<!--                                android:text="@string/email"-->
-<!--                                android:textColor="#6D101010"-->
-<!--                                android:textSize="15dp" />-->
-<!--                            <TextView-->
-<!--                                android:id="@+id/userEmail_info"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_marginTop="10dp"-->
-<!--                                android:ellipsize="marquee"-->
-<!--                                android:scrollbars="horizontal"-->
-<!--                                android:singleLine="true"-->
-<!--                                android:text="Mail"-->
-<!--                                android:textColor="#39387E"-->
-<!--                                android:fontFamily="@font/interextrabold"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:textSize="16sp" />-->
-<!--                        </LinearLayout>-->
-<!--                        <View-->
-<!--                            android:layout_below="@+id/Email_Profile"-->
-<!--                            android:background="#A29DD5"-->
-<!--                            android:layout_marginEnd="20dp"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="2dp">-->
-<!--                        </View>-->
-<!--                        <LinearLayout-->
-<!--                            android:layout_below="@+id/Email_Profile"-->
-<!--                            android:layout_alignParentBottom="true"-->
-<!--                            android:id="@+id/PriceProduct"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:orientation="horizontal"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:paddingStart="20dp"-->
-<!--                            android:layout_marginTop="15dp">-->
-<!--                            <TextView-->
-<!--                                android:layout_weight="1"-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:fontFamily="@font/interextrabold"-->
-<!--                                android:text="Price"-->
-<!--                                android:textColor="#6D101010"-->
-<!--                                android:paddingRight="10dp"-->
-<!--                                android:textSize="22dp" />-->
-<!--                            <TextView-->
-<!--                                android:id="@+id/Price"-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:text="99$"-->
-<!--                                android:fontFamily="@font/interextrabold"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:textSize="25sp"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                </androidx.cardview.widget.CardView>-->
-            </RelativeLayout>
-        </RelativeLayout>
-</LinearLayout>
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Pay by master credit"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#36000000"
+            />
+        <LinearLayout
+            android:id="@+id/momoPay"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/momo"/>
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Pay by master momo"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
