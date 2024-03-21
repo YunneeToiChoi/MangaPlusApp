@@ -9,7 +9,6 @@ Feature
       + Change country                     done
       + Sreach                             done       
       + Hot
-      + Music
       + Payment                            done
       + Library
       + Control info                       done
@@ -18,7 +17,6 @@ Feature
       + CRUD                               done       
       + Control Payment                    
   {SERVICE}
-      + Play Music
       + Buy book
       + Sign in/up Social  
 
